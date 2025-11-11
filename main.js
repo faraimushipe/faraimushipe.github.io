@@ -40,11 +40,11 @@ async function submitForm(){
     Object.keys(payload).forEach(key => formData.append(key, payload[key]));
     const res = await fetch(window.GOOGLE_SCRIPT_URL, {
       method: 'POST',
-      body: formData
+      body: formData,
+      mode: 'no-cors'
     });
-    const j=await res.json();
-    if(j.status==='success'){ status.innerText='Message sent — thank you!'; document.getElementById('contact-form').reset(); }
-    else if(j.status==='blocked'){ status.innerText='Spam blocked.'; }
-    else { status.innerText = j.message || 'Failed to send.'; }
+    // Since no-cors, response is opaque, assume success if no network error
+    status.innerText='Message sent — thank you!';
+    document.getElementById('contact-form').reset();
   } catch(err){ console.error(err); status.innerText='Network error.'; }
 }
