@@ -66,10 +66,7 @@ function runPrediction(){
 }
 
 function runN8nSim(){
-  alert('Function called!');
-  console.log('runN8nSim called');
   const status = document.getElementById('n8n-status');
-  console.log('status element:', status);
   status.innerText = 'Simulating: Webhook Trigger → Processing...';
   setTimeout(() => {
     status.innerText = 'Simulating: Google Sheets → Logging data...';
