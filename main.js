@@ -35,8 +35,13 @@ async function submitForm(){
   if(!name||!email||!message){ status.innerText='Please complete required fields.'; return; }
   if(!window.GOOGLE_SCRIPT_URL){ status.innerText='Contact endpoint not configured.'; return; }
   try{
-    const payload={name,email,subject,message,ua:navigator.userAgent,origin:window.location.origin,secretField};
-    const res=await fetch(window.GOOGLE_SCRIPT_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    const payload = {name,email,subject,message,ua:navigator.userAgent,origin:window.location.origin,secretField};
+    const formData = new URLSearchParams();
+    Object.keys(payload).forEach(key => formData.append(key, payload[key]));
+    const res = await fetch(window.GOOGLE_SCRIPT_URL, {
+      method: 'POST',
+      body: formData
+    });
     const j=await res.json();
     if(j.status==='success'){ status.innerText='Message sent — thank you!'; document.getElementById('contact-form').reset(); }
     else if(j.status==='blocked'){ status.innerText='Spam blocked.'; }
