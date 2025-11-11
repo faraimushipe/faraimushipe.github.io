@@ -1,1 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 80"><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#7C5CFF"/><stop offset="1" stop-color="#50E3C2"/></linearGradient></defs><rect width="80" height="80" rx="16" fill="url(#g)"/><path d="M22 54 L38 26 L48 26 L32 54 Z" stroke="#021026" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><text x="95" y="52" font-family="Inter, sans-serif" font-size="40" font-weight="700" fill="url(#g)">4Thoughts</text></svg>
+<?xml version="1.0"?>
+<svg width="280" height="80" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <defs>
+  <linearGradient id="g" x1="0" x2="1">
+   <stop offset="0" stop-color="#7C5CFF"/>
+   <stop offset="1" stop-color="#50E3C2"/>
+  </linearGradient>
+ </defs>
+ <g class="layer">
+  <title>Layer 1</title>
+  <rect fill="url(#g)" height="80" id="svg_1" rx="16" width="80"/>
+  <path d="m22,54l16,-28l10,0l-16,28l-10,0z" id="svg_2" opacity="0.9" stroke="#021026" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+  <text fill="url(#g)" font-family="Inter, sans-serif" font-size="33.01" font-weight="700" id="svg_3" x="86" y="55.16">4Thoughts</text>
+ </g>
+</svg>

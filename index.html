@@ -15,12 +15,13 @@
     <div class="brand">
       <div class="logo"><img src="assets/logo-primary.svg" alt="4Thoughts logo" /></div>
       <div class="hero-text">
-        <h1>Farai Mushipe — Founder, <span class="accent">4Thoughts</span></h1>
-        <p class="muted">AI & IoT Systems Engineer — Intelligent automation, chatbots, and embedded systems.</p>
+        <h1>Farai Mushipe | Founder, <span class="accent" style="background: linear-gradient(45deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">4Thoughts</span></h1>
+        <p class="muted" style="font-size:16px;font-weight:500;">AI & IoT Systems Engineer — Automating workflows, building intelligent chatbots, and deploying embedded systems to boost efficiency and drive results for clients.</p>
         <div class="cta">
           <a href="#engineering-lab" class="btn">See My Work</a>
-          <a href="#contact" class="btn ghost">Contact</a>
+          <a href="#contact" class="btn">Contact</a>
           <a href="assets/Farai-Mushipe-CV.pdf" class="btn small">Download CV</a>
+          <a href="#contact" class="btn">Hire Me</a>
         </div>
       </div>
     </div>
@@ -34,10 +35,76 @@
       <h2>Impact Dashboard</h2>
       <p class="muted">Production metrics and outcomes from projects and pilots.</p>
       <div class="counters">
-        <div class="counter"><strong id="ctr-countries">0</strong><span>Countries deployed</span></div>
-        <div class="counter"><strong id="ctr-users">0</strong><span>Active bot users</span></div>
-        <div class="counter"><strong id="ctr-devices">0</strong><span>IoT devices</span></div>
-        <div class="counter"><strong id="ctr-accuracy">0%</strong><span>Top model accuracy</span></div>
+        <div class="counter"><strong id="ctr-countries">1</strong><span>:Countries deployed</span></div>
+        <div class="counter"><strong id="ctr-users">120</strong><span>:Active bot users</span></div>
+        <div class="counter"><strong id="ctr-devices">15</strong><span>:IoT devices</span></div>
+        <div class="counter"><strong id="ctr-accuracy">92%</strong><span>:Top model accuracy</span></div>
+      </div>
+    </article>
+
+    <article class="card" data-aos="fade-up">
+      <h2>Achievements & Recognitions</h2>
+      <p class="muted">National and international awards for innovation and excellence.</p>
+      <ul class="achievements">
+        <li><strong>Presidential Innovation Challenge Selectee (2024)</strong> - National Honor for innovative AI and IoT solutions.</li>
+        <li><strong>Kutsaga Innovation Challenge Top 20 Finalist (2025)</strong> - Ranked among Zimbabwe's Top 20 Projects for technological excellence.</li>
+        <li><strong>ATUPA Competition Participant (Kenya, 2024)</strong> - International Representative showcasing African innovation.</li>
+      </ul>
+    </article>
+
+    <article class="card" data-aos="fade-up">
+      <h2>Certifications</h2>
+      <p class="muted">Professional certifications from Cisco Networking Academy. <a href="https://www.credly.com/users/farai-peter-jfarfar/badges" target="_blank" style="color:var(--accent)">View on Credly →</a></p>
+      <div class="certs">
+        <div class="cert-item">
+          <strong>Junior Cybersecurity Analyst Career Path</strong> - Cisco<br>
+          <span class="muted">Issued Jun 10, 2025</span>
+        </div>
+        <div class="cert-item">
+          <strong>Cyber Threat Management</strong> - Cisco<br>
+          <span class="muted">Issued Oct 27, 2024</span>
+        </div>
+        <div class="cert-item">
+          <strong>Network Support and Security</strong> - Cisco<br>
+          <span class="muted">Issued Oct 14, 2024</span>
+        </div>
+        <div class="cert-item">
+          <strong>Introduction to Cybersecurity</strong> - Cisco<br>
+          <span class="muted">Issued Oct 4, 2024</span>
+        </div>
+        <div class="cert-item">
+          <strong>Introduction to Data Science</strong> - Cisco<br>
+          <span class="muted">Issued Oct 4, 2024</span>
+        </div>
+        <div class="cert-item">
+          <strong>Networking Basics</strong> - Cisco<br>
+          <span class="muted">Issued Oct 4, 2024</span>
+        </div>
+        <div class="cert-item">
+          <strong>Introduction to IoT</strong> - Cisco<br>
+          <span class="muted">Issued Oct 3, 2024</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-aos="fade-up">
+      <h2>Professional Summary</h2>
+      <p>Innovative Computer Systems Engineer with a proven track record in designing and deploying cutting-edge AI and IoT solutions. Combines expertise in full-stack development, networking, and cybersecurity to build robust, real-world systems. A proactive problem-solver recognized nationally for technical projects, seeking to leverage a broad technical skill set to drive success in a challenging graduate role.</p>
+    </article>
+
+    <article class="card" data-aos="fade-up">
+      <h2>Experience</h2>
+      <div class="experience">
+        <div class="job">
+          <h3>ICT, AI and Digital Channel Officer</h3>
+          <p class="muted">Inclusive Finance · Current (1.5 months)</p>
+          <p>Leading ICT, AI, and digital channel initiatives.</p>
+        </div>
+        <div class="job">
+          <h3>Software & Network Engineer Intern</h3>
+          <p class="muted">Bulawayo Polytechnic · Internship · Aug 2023 - Jul 2024 (1 yr) · Bulawayo Province, Zimbabwe · On-site</p>
+          <p>Skills: Computer Hardware Troubleshooting · Networking (Mikrotik, Unifi, VPN setup, firewall configuration) · Programming Languages (Python, Java, JavaScript, C, C++) · Frameworks (Android Studio, Botpress) · Technical Support.</p>
+        </div>
       </div>
     </article>
 
@@ -70,33 +137,100 @@
         </div>
 
         <div class="lab-card" style="grid-column:1/-1">
-          <h3>Mock Crop-Disease Detection (Client-side)</h3>
-          <div class="mock-wrap">
-            <img id="sample-img" src="assets/sample-field.jpg" alt="field" />
-            <div id="overlay" class="overlay"></div>
+          <h3>n8n Automation Workflow Simulation</h3>
+          <div class="n8n-flow">
+            <div class="node start">Webhook Trigger<br><small>Receive form data</small></div>
+            <div class="arrow">→</div>
+            <div class="node">Google Sheets<br><small>Log data</small></div>
+            <div class="arrow">→</div>
+            <div class="node">Email<br><small>Send notification</small></div>
+            <div class="arrow">→</div>
+            <div class="node end">WhatsApp<br><small>Send alert</small></div>
           </div>
-          <div style="margin-top:8px">
-            <button class="btn small" onclick="mockYOLO()">Run Mock</button>
-            <button class="btn ghost small" onclick="clearYOLO()">Clear</button>
+          <div style="margin-top:8px;text-align:center">
+            <button class="btn small" onclick="runN8nSim()">Run Simulation</button>
+            <p id="n8n-status" class="muted" style="font-size:13px;margin:4px 0">Click to simulate workflow execution</p>
+          </div>
+          <div class="n8n-examples">
+            <h4>3 n8n Automations for Businesses:</h4>
+            <ul>
+              <li><strong>Contact Form to CRM:</strong> Automatically save leads from website forms to CRM systems like HubSpot, sending follow-up emails.</li>
+              <li><strong>Social Media Posting:</strong> Schedule and post content to LinkedIn/Twitter, pulling from Google Sheets for consistent branding.</li>
+              <li><strong>Inventory Alerts:</strong> Monitor stock levels via APIs, sending WhatsApp alerts to managers when items are low.</li>
+            </ul>
           </div>
         </div>
-      </div>
-    </article>
+
+        <div class="lab-card">
+          <h3>n8n: Social Media Posting</h3>
+          <div class="n8n-flow">
+            <div class="node start">Schedule<br><small>Cron trigger</small></div>
+            <div class="arrow">→</div>
+            <div class="node">Google Sheets<br><small>Fetch posts</small></div>
+            <div class="arrow">→</div>
+            <div class="node">LinkedIn API<br><small>Post content</small></div>
+            <div class="arrow">→</div>
+            <div class="node end">Email<br><small>Report</small></div>
+          </div>
+          <div style="margin-top:8px;text-align:center">
+            <button class="btn small" onclick="runSocialSim()">Run Simulation</button>
+            <p id="social-status" class="muted" style="font-size:13px;margin:4px 0">Click to simulate social posting workflow</p>
+          </div>
+        </div>
+
+        <div class="lab-card">
+          <h3>n8n: Inventory Alerts</h3>
+          <div class="n8n-flow">
+            <div class="node start">API Trigger<br><small>Stock check</small></div>
+            <div class="arrow">→</div>
+            <div class="node">Condition<br><small>Low stock?</small></div>
+            <div class="arrow">→</div>
+            <div class="node">WhatsApp<br><small>Send alert</small></div>
+            <div class="arrow">→</div>
+            <div class="node end">Slack<br><small>Team notify</small></div>
+          </div>
+          <div style="margin-top:8px;text-align:center">
+            <button class="btn small" onclick="runInventorySim()">Run Simulation</button>
+            <p id="inventory-status" class="muted" style="font-size:13px;margin:4px 0">Click to simulate inventory alert workflow</p>
+          </div>
+        </div>
+
+        <div class="lab-card">
+          <h3>AI Prediction Demo</h3>
+          <div class="ai-demo">
+            <input type="text" id="ai-input" placeholder="Enter data (e.g., image features)" />
+            <button class="btn small" onclick="runPrediction()">Predict</button>
+            <p id="ai-output" class="muted">Prediction will appear here</p>
+          </div>
+        </div>
 
     <article class="card" data-aos="fade-up">
       <h2>Selected Case Studies</h2>
       <div class="projects">
         <div class="project">
           <h3>Project Kushora — Agricultural Surveillance</h3>
-          <p class="muted">Drone-based detection for livestock & crops — Result: 92% detection accuracy in controlled tests. <a href="content/case-kushora.md">Read case study →</a></p>
+          <p class="muted">Drone-based detection for livestock & crops — Result: 92% detection accuracy in controlled tests. <a href="content/case-kushora.html">Read case study →</a></p>
+          <p class="muted">Core Technologies: AI/ML, Computer Vision, IoT Sensors, Drone Integration.</p>
         </div>
         <div class="project">
           <h3>Drone AI System</h3>
-          <p class="muted">Edge-first inference pipelines for aerial imagery analysis. <a href="content/case-drone.md">Read case study →</a></p>
+          <p class="muted">Edge-first inference pipelines for aerial imagery analysis. <a href="content/case-drone.html">Read case study →</a></p>
+          <p class="muted">Core Technologies: TensorFlow, YOLO, Embedded Systems, Satellite Data.</p>
         </div>
         <div class="project">
           <h3>WhatsApp Automation Bot</h3>
-          <p class="muted">Production WhatsApp & web chatbots automating 70% of common tasks. <a href="content/case-bot.md">Read case study →</a></p>
+          <p class="muted">Production WhatsApp & web chatbots automating 70% of common tasks. <a href="content/case-bot.html">Read case study →</a></p>
+          <p class="muted">Core Technologies: Botpress, API Integration, NLP, Cloud Hosting.</p>
+        </div>
+        <div class="project">
+          <h3>Military Radar Dissertation</h3>
+          <p class="muted">Advanced radar systems for defense applications. <a href="assets/military-radar.pdf" download>Dissertation PDF</a></p>
+          <p class="muted">Core Technologies: Signal Processing, Radar Algorithms, Embedded Hardware, Cybersecurity.</p>
+        </div>
+        <div class="project">
+          <h3>Project Kumema Dissertation</h3>
+          <p class="muted">Innovative project in AI and IoT integration. <a href="assets/kumema.pdf" download>Dissertation PDF</a></p>
+          <p class="muted">Core Technologies: Machine Learning, IoT Networks, Data Analytics, Automation.</p>
         </div>
       </div>
     </article>
@@ -105,9 +239,9 @@
       <h2>Insights & Blog</h2>
       <p class="muted">Technical write-ups and engineering notes.</p>
       <ul>
-        <li><a href="content/blog1.md">How we built a 92% accurate drone detection pipeline</a></li>
-        <li><a href="content/blog2.md">Building a university radar that maps motion</a></li>
-        <li><a href="content/blog3.md">n8n + BotPenguin: automations that save time</a></li>
+        <li><a href="content/blog1.html">How we built a 92% accurate drone detection pipeline</a></li>
+        <li><a href="content/blog2.html">Building a university radar that maps motion</a></li>
+        <li><a href="content/blog3.html">n8n + BotPenguin: automations that save time</a></li>
       </ul>
     </article>
 
@@ -127,18 +261,81 @@
         <textarea id="message" name="message" placeholder="Your message" required></textarea>
         <div style="display:flex;gap:8px;align-items:center">
           <button class="btn" type="submit">Send Message</button>
+          <a href="https://wa.me/263780932494" target="_blank" class="btn" style="text-decoration:none;">WhatsApp Me</a>
           <div id="form-status" class="muted" style="font-size:13px"></div>
         </div>
       </form>
     </div>
-
-    <div class="card" data-aos="fade-left">
-      <h3>Tech Stack</h3>
-      <div class="heatmap">
-        <div class="heat">Python<br/><small class="muted">Advanced</small></div>
-        <div class="heat">YOLO / TF<br/><small class="muted">Advanced</small></div>
-        <div class="heat">Botpress / BotPenguin<br/><small class="muted">Advanced</small></div>
-        <div class="heat">n8n<br/><small class="muted">Advanced</small></div>
+      <div class="skills-list">
+        <div class="skill-category">
+          <h4>Artificial Intelligence & Machine Learning</h4>
+          <ul>
+            <li>Convolutional Neural Networks (CNN)</li>
+            <li>YOLO Models for object detection</li>
+            <li>TensorFlow & Keras Frameworks</li>
+            <li>AI Model Training & Deployment</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h4>Computer Vision</h4>
+          <ul>
+            <li>Image Recognition & Classification</li>
+            <li>Predictive Analytics</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h4>Software Development & Programming</h4>
+          <ul>
+            <li>Python</li>
+            <li>Java</li>
+            <li>Android SDK</li>
+            <li>Botpress (Chatbot Development)</li>
+            <li>API Integration</li>
+            <li>Full-Stack Development</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h4>Internet of Things (IoT) & Embedded Systems</h4>
+          <ul>
+            <li>IoT Device Configuration & Integration</li>
+            <li>Sensor Integration & Data Acquisition</li>
+            <li>Drone Technology</li>
+            <li>Satellite Imagery Data Integration</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h4>Information & Communications Technology (ICT)</h4>
+          <ul>
+            <li>Network Configuration (MikroTik, Ubiquiti)</li>
+            <li>System Troubleshooting & Diagnostics</li>
+            <li>Hardware Maintenance & Repair</li>
+            <li>Remote Desktop Support</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h4>Data Science & Analysis</h4>
+          <ul>
+            <li>Data Analysis from Sensor Feeds</li>
+            <li>Data Analysis from Satellite Imagery</li>
+            <li>Data-Driven Insight Generation</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h4>Cybersecurity</h4>
+          <ul>
+            <li>Threat Management</li>
+            <li>Secure Network Architectures (VLANs, VPNs)</li>
+            <li>Application Security</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h4>UI/UX Design</h4>
+          <ul>
+            <li>Magic Patterns</li>
+            <li>User-Centered Design</li>
+            <li>Prototyping Tools</li>
+          </ul>
+        </div>
       </div>
     </div>
 
@@ -157,6 +354,10 @@
   <div class="container">
     <div>© 2025 Farai Mushipe — 4Thoughts</div>
     <div class="muted">Contact: mushipefarai01@gmail.com · +263 78 093 2494</div>
+    <div class="social-links">
+      <a href="https://linkedin.com/in/faraipetermushipe" target="_blank">LinkedIn</a> |
+      <a href="https://github.com/faraimushipe" target="_blank">GitHub</a>
+    </div>
   </div>
 </footer>
 
@@ -168,10 +369,21 @@
 <script>
 AOS.init({duration:700, once:true});
 
+const text = "AI & IoT Systems Engineer — Automating workflows, building intelligent chatbots, and deploying embedded systems to boost efficiency and drive results for clients.";
+let i = 0;
+function typeWriter() {
+  if (i < text.length) {
+    document.getElementById('typewriter').innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeWriter, 50);
+  }
+}
+typeWriter();
+
 window.GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzcD5KgvUhMHQmB024KN8uEVpoDuxTQ5RCznnpKqv5xsFz3fHs1oCJapKDBplW_12Im/exec';
 
 /* Impact counters */
-const impact = { countries: 3, users: 150, devices: 26, accuracy: 92 };
+const impact = { countries: 1, users: 150, devices: 15, accuracy: 92 };
 function animateCounters(){
   const dur=1200, start=Date.now();
   function frame(){

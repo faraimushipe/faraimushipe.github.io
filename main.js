@@ -24,7 +24,103 @@ function mockYOLO(){
   const boxes=[{left:10,top:8,w:22,h:32,label:'Leaf blight (0.92)'},{left:52,top:18,w:30,h:25,label:'Healthy (0.98)'}];
   boxes.forEach(b=>{ const el=document.createElement('div'); el.style.position='absolute'; el.style.left=b.left+'%'; el.style.top=b.top+'%'; el.style.width=b.w+'%'; el.style.height=b.h+'%'; el.style.border='2px dashed rgba(124,92,255,0.9)'; el.style.boxSizing='border-box'; el.style.borderRadius='6px'; const lbl=document.createElement('div'); lbl.innerText=b.label; lbl.style.position='absolute'; lbl.style.left='0'; lbl.style.top='-18px'; lbl.style.background='rgba(2,6,12,0.7)'; lbl.style.padding='4px 6px'; lbl.style.fontSize='12px'; lbl.style.borderRadius='6px'; el.appendChild(lbl); overlay.appendChild(el); });
 }
-function clearYOLO(){ document.getElementById('overlay').innerHTML=''; }
+
+function sendChat(){
+  const input = document.getElementById('chat-input');
+  const messages = document.getElementById('chat-messages');
+  const text = input.value.trim();
+  if(!text) return;
+  const userMsg = document.createElement('div');
+  userMsg.className = 'message user';
+  userMsg.textContent = text;
+  messages.appendChild(userMsg);
+  input.value = '';
+  messages.scrollTop = messages.scrollHeight;
+  setTimeout(() => {
+    const botMsg = document.createElement('div');
+    botMsg.className = 'message bot';
+    botMsg.textContent = 'Thanks for your question! I can help with AI, IoT, and automation. How else can I assist?';
+    messages.appendChild(botMsg);
+    messages.scrollTop = messages.scrollHeight;
+  }, 1000);
+}
+
+function updateSensors(){
+  document.getElementById('temp').textContent = (20 + Math.random() * 10).toFixed(1) + '°C';
+  document.getElementById('humidity').textContent = (50 + Math.random() * 30).toFixed(0) + '%';
+  document.getElementById('motion').textContent = Math.random() > 0.5 ? 'Yes' : 'No';
+}
+
+function runPrediction(){
+  const input = document.getElementById('ai-input').value.trim();
+  const output = document.getElementById('ai-output');
+  if(!input) {
+    output.textContent = 'Please enter data';
+    return;
+  }
+  output.textContent = 'Processing...';
+  setTimeout(() => {
+    const predictions = ['Leaf Blight (85%)', 'Healthy Crop (92%)', 'Pest Detected (78%)'];
+    output.textContent = 'Prediction: ' + predictions[Math.floor(Math.random() * predictions.length)];
+  }, 1000);
+}
+
+function runN8nSim(){
+  alert('Function called!');
+  console.log('runN8nSim called');
+  const status = document.getElementById('n8n-status');
+  console.log('status element:', status);
+  status.innerText = 'Simulating: Webhook Trigger → Processing...';
+  setTimeout(() => {
+    status.innerText = 'Simulating: Google Sheets → Logging data...';
+    setTimeout(() => {
+      status.innerText = 'Simulating: Email → Sending notification...';
+      setTimeout(() => {
+        status.innerText = 'Simulating: WhatsApp → Alert sent!';
+        setTimeout(() => {
+          status.innerText = 'Workflow complete! Click to simulate again.';
+        }, 1000);
+      }, 1000);
+    }, 1000);
+  }, 1000);
+}
+
+function runSocialSim(){
+  const status = document.getElementById('social-status');
+  status.innerText = 'Simulating: Schedule → Fetching posts...';
+  setTimeout(() => {
+    status.innerText = 'Simulating: Google Sheets → Posting to LinkedIn...';
+    setTimeout(() => {
+      status.innerText = 'Simulating: LinkedIn API → Sending report...';
+      setTimeout(() => {
+        status.innerText = 'Workflow complete! Post published.';
+        setTimeout(() => {
+          status.innerText = 'Click to simulate social posting workflow';
+        }, 2000);
+      }, 1000);
+    }, 1000);
+  }, 500);
+}
+
+function runInventorySim(){
+  const status = document.getElementById('inventory-status');
+  status.innerText = 'Simulating: API Trigger → Checking stock...';
+  setTimeout(() => {
+    status.innerText = 'Simulating: Condition → Low stock detected!';
+    setTimeout(() => {
+      status.innerText = 'Simulating: WhatsApp → Alert sent to manager...';
+      setTimeout(() => {
+        status.innerText = 'Simulating: Slack → Team notified.';
+        setTimeout(() => {
+          status.innerText = 'Workflow complete! Inventory alert sent.';
+          setTimeout(() => {
+            status.innerText = 'Click to simulate inventory alert workflow';
+          }, 2000);
+        }, 1000);
+      }, 1000);
+    }, 1000);
+  }, 500);
+}
 
 /* Contact submit (no recaptcha) */
 async function submitForm(){

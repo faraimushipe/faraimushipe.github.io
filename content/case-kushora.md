@@ -9,8 +9,14 @@ Project Kushora integrates drone-acquired imagery, edge IoT sensors, and a YOLO/
 **Result**
 Controlled trials showed 92% detection accuracy for the trained model on validation sets. The system reduced manual inspection time by >80% for sample farms and enabled proactive intervention.
 
-**Tech**
-Python, TensorFlow, YOLO, n8n, Drone APIs, ESP32, Postgres
+**Core Technologies**
+- AI/ML: Convolutional Neural Networks (CNN), YOLO Object Detection
+- Computer Vision: Image Recognition & Classification, Predictive Analytics
+- IoT Sensors: ESP32-based edge devices for real-time data acquisition
+- Drone Integration: APIs for aerial imagery capture and processing
+- Automation: n8n workflows for alert routing and notifications
+- Backend: Python, TensorFlow, Postgres for data storage
+- Frontend: Web dashboard with real-time updates
 
 **Next steps**
 Optimize inference for edge devices and expand dataset diversity to improve robustness.

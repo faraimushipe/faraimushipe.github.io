@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How we built a 92% accurate drone detection pipeline | 4Thoughts</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <div class="brand">
+        <div class="logo"><img src="../assets/logo-primary.svg" alt="4Thoughts logo" /></div>
+        <div class="hero-text">
+          <h1>4Thoughts Blog</h1>
+          <p class="muted">Insights from AI & IoT Engineering</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container grid">
+    <section class="main-col">
+      <article class="card">
+        <h1>How we built a 92% accurate drone detection pipeline</h1>
+        <p class="muted">Published Aug 2024 | AI, Computer Vision, Drones</p>
+        <p>In this post, we dive deep into the development of a high-accuracy drone detection system using advanced AI techniques. This pipeline has been deployed in real-world scenarios, achieving 92% accuracy in controlled tests.</p>
+        
+        <h2>Problem Statement</h2>
+        <p>Traditional surveillance methods struggle with aerial threats. We needed a robust system to detect and classify drones in real-time.</p>
+        
+        <h2>Approach</h2>
+        <p>We used YOLOv8 for object detection, trained on a custom dataset of drone imagery. The pipeline includes preprocessing, inference, and post-processing steps.</p>
+        
+        <pre><code>// Example Python code for inference
+import torch
+model = torch.load('drone_model.pth')
+results = model.predict(image)
+</code></pre>
+        
+        <h2>Results</h2>
+        <p>Our model achieved 92% mAP on the test set, with low latency for edge deployment.</p>
+        
+        <h2>Conclusion</h2>
+        <p>This project demonstrates the power of AI in modern surveillance. For more details, check our case study.</p>
+        
+        <a href="../index.html" class="btn">Back to Portfolio</a>
+      </article>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init({duration:700, once:true});</script>
+</body>
+</html>

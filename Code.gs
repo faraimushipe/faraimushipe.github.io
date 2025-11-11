@@ -7,7 +7,12 @@ const MAX_EMAIL_PER_HOUR = 6;
 function doPost(e){
   try{
     if(!e || !e.postData) return _json({status:'error',message:'No data'},400);
-    const data = JSON.parse(e.postData.contents);
+    const postData = e.postData.contents;
+    const params = new URLSearchParams(postData);
+    const data = {};
+    for (let [key, value] of params) {
+      data[key] = value;
+    }
     const props = PropertiesService.getScriptProperties();
     const ADMIN_EMAIL = props.getProperty(SP_ADMIN_EMAIL_PROP) || "";
     const allowedOriginsRaw = props.getProperty(SP_ALLOWED_ORIGINS) || "";
@@ -39,5 +44,7 @@ function doPost(e){
   }catch(err){ Logger.log(err); return _json({status:'error',message:'Server error'},500); }
 }
 
-function _json(obj, code){ return ContentService.createTextOutput(JSON.stringify(obj)).setMimeType(ContentService.MimeType.JSON); }
+function _json(obj, code){
+  return ContentService.createTextOutput(JSON.stringify(obj)).setMimeType(ContentService.MimeType.JSON);
+}
 function _rateLimit(cache,key,max){ const v=cache.get(key); if(!v){ cache.put(key,'1',3600); return true } const c=parseInt(v,10); if(c>=max) return false; cache.put(key,String(c+1),3600); return true }
