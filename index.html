@@ -119,14 +119,14 @@
       <h3>Contact & Live Chat</h3>
       <p class="muted">Use the form or the live chat widget (BotPenguin) in the bottom-right.</p>
 
-      <form id="contact-form" onsubmit="event.preventDefault(); submitForm();">
+      <form id="contact-form" action="https://formspree.io/f/xyzlyppb" method="POST">
         <input type="text" id="secretField" style="display:none" autocomplete="off" />
         <input type="text" id="name" placeholder="Your name" required />
         <input type="email" id="email" placeholder="Email" required />
         <input type="text" id="subject" placeholder="Subject" />
         <textarea id="message" placeholder="Your message" required></textarea>
         <div style="display:flex;gap:8px;align-items:center">
-          <button class="btn" type="button" onclick="submitForm()">Send Message</button>
+          <button class="btn" type="submit">Send Message</button>
           <div id="form-status" class="muted" style="font-size:13px"></div>
         </div>
       </form>
