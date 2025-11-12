@@ -52,7 +52,7 @@ function updateSensors(){
 }
 
 function runPrediction(){
-  const input = document.getElementById('ai-input').value.trim();
+  const input = document.getElementById('ai-input').value.trim().toLowerCase();
   const output = document.getElementById('ai-output');
   if(!input) {
     output.textContent = 'Please enter data';
@@ -60,8 +60,20 @@ function runPrediction(){
   }
   output.textContent = 'Processing...';
   setTimeout(() => {
-    const predictions = ['Leaf Blight (85%)', 'Healthy Crop (92%)', 'Pest Detected (78%)'];
-    output.textContent = 'Prediction: ' + predictions[Math.floor(Math.random() * predictions.length)];
+    let prediction = '';
+    const confidence = 80 + Math.floor(Math.random() * 15); // 80-95%
+    if (input.includes('blight') || input.includes('yellow') || input.includes('spots') || input.includes('lesion')) {
+      prediction = 'Leaf Blight (' + confidence + '%)';
+    } else if (input.includes('healthy') || input.includes('green') || input.includes('normal')) {
+      prediction = 'Healthy Crop (' + confidence + '%)';
+    } else if (input.includes('pest') || input.includes('bug') || input.includes('insect') || input.includes('damage')) {
+      prediction = 'Pest Detected (' + confidence + '%)';
+    } else {
+      // Random for unknown inputs
+      const predictions = ['Leaf Blight (' + confidence + '%)', 'Healthy Crop (' + confidence + '%)', 'Pest Detected (' + confidence + '%)'];
+      prediction = predictions[Math.floor(Math.random() * predictions.length)];
+    }
+    output.textContent = 'Prediction: ' + prediction;
   }, 1000);
 }
 
