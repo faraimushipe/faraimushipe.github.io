@@ -153,3 +153,15 @@ async function submitForm(){
     document.getElementById('contact-form').reset();
   } catch(err){ console.error(err); status.innerText='Network error.'; }
 }
+
+function filterLabDemos(){
+  const input=document.getElementById('lab-search-input');
+  if(!input) return;
+  const query=input.value.trim().toLowerCase();
+  const cards=document.querySelectorAll('.lab-grid .lab-card');
+  cards.forEach(card=>{
+    const text=card.textContent.toLowerCase();
+    const match=!query||text.indexOf(query)!==-1;
+    card.style.display=match?'':'none';
+  });
+}

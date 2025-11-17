@@ -112,6 +112,10 @@
       <h2>4Thoughts Lab — R&D & Demos</h2>
       <p class="muted">Interactive prototypes, simulations and reproducible blueprints.</p>
 
+      <div class="lab-search">
+        <input type="text" id="lab-search-input" placeholder="Search demos (e.g., 'network', 'data', 'AR')" oninput="filterLabDemos()" />
+      </div>
+
       <div class="lab-grid">
         <div class="lab-card">
           <h3>Radar Simulator</h3>
@@ -203,6 +207,57 @@
             <p id="ai-output" class="muted">Prediction will appear here</p>
           </div>
         </div>
+
+        <div class="lab-card">
+          <h3>Neural Network Visualizer</h3>
+          <p class="muted">High-level explanation of how input features move through layers, activations and outputs in your AI models.</p>
+          <p class="muted">Used to communicate architectures like CNNs and YOLO-based detectors to non-technical stakeholders.</p>
+        </div>
+
+        <div class="lab-card">
+          <h3>AR/VR Showcase</h3>
+          <p class="muted">Concept screens for augmented and virtual reality training scenarios in agriculture, safety drills and field maintenance.</p>
+          <p class="muted">Highlights immersive demos you can extend into full AR/VR experiences.</p>
+        </div>
+
+        <div class="lab-card">
+          <h3>Voice Assistant</h3>
+          <p class="muted">Design space for voice-driven assistants that connect to WhatsApp, web chatbots and internal knowledge bases.</p>
+          <p class="muted">Focuses on commands, intents and responses for AI-powered productivity tools.</p>
+        </div>
+
+        <div class="lab-card">
+          <h3>Cloud Infrastructure Designer</h3>
+          <p class="muted">Blueprints for deploying AI, IoT and automation workloads on cloud providers.</p>
+          <p class="muted">Captures VPC layouts, security groups and high-availability patterns you use in client solutions.</p>
+        </div>
+
+        <div class="lab-card">
+          <h3>Data Science Dashboard</h3>
+          <p class="muted">Summary of sample KPIs like model accuracy, alert counts and response times from pilots and experiments.</p>
+          <p class="muted">Acts as a lightweight analytics view that pairs with your full dashboards.</p>
+        </div>
+
+        <div class="lab-card">
+          <h3>Network Config Simulator</h3>
+          <p class="muted">Overview of secure network topologies you configure, including VLANs, VPNs and firewall rules.</p>
+          <p class="muted">Ideal for explaining how routers, access points and remote sites connect safely.</p>
+        </div>
+
+        <div class="lab-card">
+          <h3>SQL Query Builder</h3>
+          <p class="muted">Showcases sample SQL patterns for reporting on sensor feeds, chatbot logs and customer journeys.</p>
+          <p class="muted">Demonstrates how you translate business questions into efficient queries.</p>
+        </div>
+
+        <div class="lab-card">
+          <h3>Computer Vision Lite Demo</h3>
+          <p class="muted">Compact explanation of how you run smaller computer vision models on constrained devices.</p>
+          <p class="muted">Links to your larger drone and crop-health work while staying lightweight for the web.</p>
+        </div>
+
+      </div>
+    </article>
 
     <article class="card" data-aos="fade-up">
       <h2>Selected Case Studies</h2>

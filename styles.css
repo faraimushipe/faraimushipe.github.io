@@ -16,6 +16,9 @@
 .counters{display:flex;gap:12px;flex-wrap:wrap}
 .counter{flex:1;min-width:140px;padding:12px;border-radius:10px;background:transparent}
 .lab-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lab-search{margin:8px 0 12px;display:flex;flex-direction:column;gap:6px}
+.lab-search input{padding:6px 10px;border-radius:6px;border:1px solid rgba(255,255,255,0.1);background:var(--card);color:#e6eef8;font-size:13px}
+.lab-search input::placeholder{color:var(--muted)}
 .lab-card{background:var(--card);padding:12px;border-radius:10px}
 .radar{height:180px;border-radius:10px;background:radial-gradient(circle at center, rgba(16,185,129,0.02), transparent 45%);position:relative;overflow:hidden;border:1px solid rgba(255,255,255,0.03)}
 .sweep{position:absolute;width:120%;height:120%;left:-10%;top:-10%;transform-origin:center;border-radius:50%;background:conic-gradient(rgba(124,92,255,0.22), rgba(124,92,255,0) 40%);opacity:0.16}
