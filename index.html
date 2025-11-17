@@ -210,50 +210,96 @@
 
         <div class="lab-card">
           <h3>Neural Network Visualizer</h3>
-          <p class="muted">High-level explanation of how input features move through layers, activations and outputs in your AI models.</p>
-          <p class="muted">Used to communicate architectures like CNNs and YOLO-based detectors to non-technical stakeholders.</p>
+          <div class="mini-demo">
+            <label class="mini-label">Layers
+              <input type="range" id="nn-layers" min="2" max="6" value="3" oninput="updateNNVisualizer()" />
+            </label>
+            <p id="nn-output" class="muted">3-layer network: input → 2 hidden layers → output.</p>
+          </div>
         </div>
 
         <div class="lab-card">
           <h3>AR/VR Showcase</h3>
-          <p class="muted">Concept screens for augmented and virtual reality training scenarios in agriculture, safety drills and field maintenance.</p>
-          <p class="muted">Highlights immersive demos you can extend into full AR/VR experiences.</p>
+          <div class="mini-demo">
+            <select id="ar-scenario" onchange="updateARScenario()">
+              <option value="training">Farm training scenario</option>
+              <option value="safety">Safety drill scenario</option>
+              <option value="maintenance">Field maintenance scenario</option>
+            </select>
+            <p id="ar-output" class="muted">Choose a scenario to see how AR/VR is used.</p>
+          </div>
         </div>
 
         <div class="lab-card">
           <h3>Voice Assistant</h3>
-          <p class="muted">Design space for voice-driven assistants that connect to WhatsApp, web chatbots and internal knowledge bases.</p>
-          <p class="muted">Focuses on commands, intents and responses for AI-powered productivity tools.</p>
+          <div class="mini-demo">
+            <input type="text" id="va-input" placeholder="Say something like 'check my balance'" />
+            <button class="btn small" onclick="detectVoiceIntent()">Detect intent</button>
+            <p id="va-output" class="muted">Intent will appear here.</p>
+          </div>
         </div>
 
         <div class="lab-card">
           <h3>Cloud Infrastructure Designer</h3>
-          <p class="muted">Blueprints for deploying AI, IoT and automation workloads on cloud providers.</p>
-          <p class="muted">Captures VPC layouts, security groups and high-availability patterns you use in client solutions.</p>
+          <div class="mini-demo">
+            <label><input type="checkbox" id="cloud-web" checked /> Web/API</label>
+            <label><input type="checkbox" id="cloud-db" checked /> Database</label>
+            <label><input type="checkbox" id="cloud-analytics" /> Analytics</label>
+            <button class="btn small" onclick="generateCloudLayout()">Generate layout</button>
+            <p id="cloud-output" class="muted">Toggle components and generate a simple cloud layout.</p>
+          </div>
         </div>
 
         <div class="lab-card">
           <h3>Data Science Dashboard</h3>
-          <p class="muted">Summary of sample KPIs like model accuracy, alert counts and response times from pilots and experiments.</p>
-          <p class="muted">Acts as a lightweight analytics view that pairs with your full dashboards.</p>
+          <div class="mini-demo">
+            <button class="btn small" onclick="randomizeDashboardKPIs()">Refresh KPIs</button>
+            <ul class="mini-kpis" id="ds-kpis">
+              <li>Accuracy: 92%</li>
+              <li>Alerts/day: 24</li>
+              <li>Response time: 1.2s</li>
+            </ul>
+          </div>
         </div>
 
         <div class="lab-card">
           <h3>Network Config Simulator</h3>
-          <p class="muted">Overview of secure network topologies you configure, including VLANs, VPNs and firewall rules.</p>
-          <p class="muted">Ideal for explaining how routers, access points and remote sites connect safely.</p>
+          <div class="mini-demo">
+            <select id="net-profile" onchange="updateNetworkConfig()">
+              <option value="branch">Branch office</option>
+              <option value="hq">Head office</option>
+              <option value="remote">Remote site</option>
+            </select>
+            <pre id="net-output" class="mini-output muted">Select a profile to view a sample network layout.</pre>
+          </div>
         </div>
 
         <div class="lab-card">
           <h3>SQL Query Builder</h3>
-          <p class="muted">Showcases sample SQL patterns for reporting on sensor feeds, chatbot logs and customer journeys.</p>
-          <p class="muted">Demonstrates how you translate business questions into efficient queries.</p>
+          <div class="mini-demo">
+            <select id="sql-metric">
+              <option value="alerts">Alerts</option>
+              <option value="sessions">Chat sessions</option>
+              <option value="devices">Devices</option>
+            </select>
+            <select id="sql-period">
+              <option value="day">per day</option>
+              <option value="week">per week</option>
+              <option value="month">per month</option>
+            </select>
+            <button class="btn small" onclick="buildSQLQuery()">Build SQL</button>
+            <pre id="sql-output" class="mini-output muted">SELECT ...</pre>
+          </div>
         </div>
 
         <div class="lab-card">
           <h3>Computer Vision Lite Demo</h3>
-          <p class="muted">Compact explanation of how you run smaller computer vision models on constrained devices.</p>
-          <p class="muted">Links to your larger drone and crop-health work while staying lightweight for the web.</p>
+          <div class="mini-demo">
+            <label class="mini-label">Model size
+              <input type="range" id="cv-size" min="1" max="3" value="2" oninput="updateCVLite()" />
+            </label>
+            <p id="cv-output" class="muted">Balanced model: medium accuracy vs speed.</p>
+          </div>
         </div>
 
       </div>

@@ -165,3 +165,132 @@ function filterLabDemos(){
     card.style.display=match?'':'none';
   });
 }
+
+function updateNNVisualizer(){
+  const slider=document.getElementById('nn-layers');
+  const output=document.getElementById('nn-output');
+  if(!slider||!output) return;
+  const layers=parseInt(slider.value,10)||3;
+  const hidden=Math.max(0,layers-2);
+  const hiddenText=hidden===1?'1 hidden layer':hidden+' hidden layers';
+  output.textContent=layers+'-layer network: input 		 '+(hidden>0?(' 		 '+hiddenText+' 		 '):'')+' 		 output.';
+}
+
+function updateARScenario(){
+  const select=document.getElementById('ar-scenario');
+  const output=document.getElementById('ar-output');
+  if(!select||!output) return;
+  const v=select.value;
+  let text='';
+  if(v==='training'){
+    text='AR overlays show farmers exactly where to inspect fields and how to treat issues step-by-step.';
+  } else if(v==='safety'){
+    text='VR scenarios simulate emergencies so staff can practice safe responses without real-world risk.';
+  } else if(v==='maintenance'){
+    text='Technicians see AR instructions on top of equipment, reducing downtime and human error.';
+  } else {
+    text='Choose a scenario to see how AR/VR is used.';
+  }
+  output.textContent=text;
+}
+
+function detectVoiceIntent(){
+  const input=document.getElementById('va-input');
+  const output=document.getElementById('va-output');
+  if(!input||!output) return;
+  const text=input.value.trim().toLowerCase();
+  if(!text){
+    output.textContent='Type an example phrase to detect intent.';
+    return;
+  }
+  let intent='general_help';
+  if(text.indexOf('balance')!==-1||text.indexOf('account')!==-1){
+    intent='check_balance';
+  } else if(text.indexOf('loan')!==-1||text.indexOf('credit')!==-1){
+    intent='loan_inquiry';
+  } else if(text.indexOf('support')!==-1||text.indexOf('help')!==-1){
+    intent='support_request';
+  }
+  output.textContent='Detected intent: '+intent;
+}
+
+function generateCloudLayout(){
+  const web=document.getElementById('cloud-web');
+  const db=document.getElementById('cloud-db');
+  const analytics=document.getElementById('cloud-analytics');
+  const output=document.getElementById('cloud-output');
+  if(!web||!db||!analytics||!output) return;
+  const parts=[];
+  if(web.checked) parts.push('Public Web/API');
+  if(db.checked) parts.push('Private Database');
+  if(analytics.checked) parts.push('Analytics/BI');
+  if(parts.length===0){
+    output.textContent='No components selected. Enable at least one to generate a layout.';
+    return;
+  }
+  output.textContent='Layout: '+parts.join('  		 ')+'. Secured with VLANs, VPNs and firewalls.';
+}
+
+function randomizeDashboardKPIs(){
+  const list=document.getElementById('ds-kpis');
+  if(!list) return;
+  const acc=88+Math.floor(Math.random()*10);
+  const alerts=10+Math.floor(Math.random()*40);
+  const rt=(0.8+Math.random()*1.2).toFixed(1);
+  const items=list.querySelectorAll('li');
+  if(items[0]) items[0].textContent='Accuracy: '+acc+'%';
+  if(items[1]) items[1].textContent='Alerts/day: '+alerts;
+  if(items[2]) items[2].textContent='Response time: '+rt+'s';
+}
+
+function updateNetworkConfig(){
+  const select=document.getElementById('net-profile');
+  const output=document.getElementById('net-output');
+  if(!select||!output) return;
+  let text='';
+  if(select.value==='branch'){
+    text='[Users] -- LAN/VLAN -- [Mikrotik Router] == VPN == [HQ Firewall] -- [Core Services]';
+  } else if(select.value==='hq'){
+    text='[Edge Router] -- [Firewall] -- [Core Switch] -- {Servers, WiFi, Monitoring}';
+  } else if(select.value==='remote'){
+    text='[IoT/Field Devices] -- 4G Router -- Encrypted tunnel -- [Cloud/VPN Gateway]';
+  } else {
+    text='Select a profile to view a sample network layout.';
+  }
+  output.textContent=text;
+}
+
+function buildSQLQuery(){
+  const metric=document.getElementById('sql-metric');
+  const period=document.getElementById('sql-period');
+  const output=document.getElementById('sql-output');
+  if(!metric||!period||!output) return;
+  const m=metric.value;
+  const p=period.value;
+  let column='created_at';
+  let table='events';
+  let agg='COUNT(*)';
+  if(m==='alerts'){ table='alerts'; }
+  if(m==='sessions'){ table='chat_sessions'; }
+  if(m==='devices'){ table='devices'; }
+  let interval='day';
+  if(p==='week') interval='week';
+  if(p==='month') interval='month';
+  const query='SELECT DATE_TRUNC(\''+interval+'\', '+column+
+    ") AS period, "+agg+' AS value FROM '+table+' GROUP BY period ORDER BY period;';
+  output.textContent=query;
+}
+
+function updateCVLite(){
+  const slider=document.getElementById('cv-size');
+  const output=document.getElementById('cv-output');
+  if(!slider||!output) return;
+  const v=parseInt(slider.value,10)||2;
+  if(v===1){
+    output.textContent='Edge model: fastest for low-power devices, slightly lower accuracy.';
+  } else if(v===2){
+    output.textContent='Balanced model: medium accuracy vs speed for most deployments.';
+  } else {
+    output.textContent='High-accuracy model: heavier but best performance for servers and GPUs.';
+  }
+}
