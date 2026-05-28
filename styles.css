@@ -19,6 +19,38 @@
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
 .source-link{font-size:12px;display:inline-flex;align-items:center;gap:4px;margin-top:8px;color:var(--accent2);text-decoration:none}.source-link:hover{text-decoration:underline}
 
+/* Status Bar */
+.status-bar{position:fixed;top:0;left:0;width:100%;background:#020617;border-bottom:1px solid rgba(124,92,255,0.2);z-index:2000;padding:4px 20px;display:flex;justify-content:space-between;align-items:center;font-family:monospace;font-size:11px;color:var(--accent2)}
+.status-bar .item{display:flex;gap:12px}
+.status-bar .hiring{color:var(--accent);font-weight:bold;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
+
+/* Engineer View Toggle */
+.view-toggle-wrap{position:fixed;bottom:20px;right:20px;z-index:1000;display:flex;align-items:center;gap:10px;background:rgba(2,6,23,0.8);padding:8px 12px;border-radius:30px;border:1px solid rgba(255,255,255,0.1);backdrop-filter:blur(10px)}
+.switch{position:relative;display:inline-block;width:34px;height:20px}
+.switch input{opacity:0;width:0;height:0}
+.slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background-color:#1e293b;transition:.4s;border-radius:20px}
+.slider:before{position:absolute;content:"";height:14px;width:14px;left:3px;bottom:3px;background-color:white;transition:.4s;border-radius:50%}
+input:checked + .slider{background-color:var(--accent)}
+input:checked + .slider:before{transform:translateX(14px)}
+
+/* Engineer View Mode Styles */
+body.engineer-mode .job, body.engineer-mode .project{font-family:monospace;background:#020617;color:var(--accent2);border-color:var(--accent2)}
+body.engineer-mode .job h3, body.engineer-mode .project h3{color:var(--accent2)}
+body.engineer-mode .job .muted, body.engineer-mode .project .muted{color:rgba(16,185,129,0.7)}
+body.engineer-mode .tag{background:transparent;border-color:var(--accent2);color:var(--accent2)}
+
+/* Interactive Background */
+#bg-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+
+/* Debug Logs */
+.debug-logs{margin-top:20px;background:#020617;padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.05);font-family:monospace;font-size:12px}
+.debug-logs h3{font-size:14px;margin:0 0 10px 0;color:var(--accent)}
+.log-entry{display:flex;gap:10px;margin-bottom:6px;color:var(--muted)}
+.log-entry .timestamp{color:var(--accent2);min-width:70px}
+.log-entry .msg{color:#e6eef8}
+.log-entry.success .msg{color:var(--accent2)}
+
 .counters{display:flex;gap:12px;flex-wrap:wrap}
 .counter{flex:1;min-width:140px;padding:12px;border-radius:10px;background:transparent}
 .lab-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}

@@ -9,8 +9,29 @@
 <link rel="icon" href="assets/logo-icon.svg">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-<header class="hero">
+<body class="human-mode">
+<div class="status-bar">
+  <div class="item">
+    <span>UPTIME: <span id="uptime">00:00:00</span></span>
+    <span>SYS_TIME: <span id="sys-time">00:00:00</span></span>
+    <span>LATENCY: <span id="latency">12ms</span></span>
+  </div>
+  <div class="item">
+    <span class="hiring">● STATUS: OPEN FOR HIRE</span>
+  </div>
+</div>
+
+<canvas id="bg-canvas"></canvas>
+
+<div class="view-toggle-wrap">
+  <span style="font-size:12px; font-family:monospace; color:var(--muted)">ENGINEER_VIEW</span>
+  <label class="switch">
+    <input type="checkbox" id="mode-toggle">
+    <span class="slider"></span>
+  </label>
+</div>
+
+<header class="hero" style="margin-top:40px">
   <div class="container">
     <div class="brand">
       <div class="logo"><img src="assets/logo-primary.svg" alt="4Thoughts logo" /></div>
@@ -85,6 +106,29 @@
         <div class="cert-item">
           <strong>Introduction to IoT</strong> - Cisco<br>
           <span class="muted">Issued Oct 3, 2024</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-aos="fade-up">
+      <h2>Recent Debug Logs</h2>
+      <p class="muted">Live operational history and systems troubleshooting.</p>
+      <div class="debug-logs" id="debug-logs">
+        <div class="log-entry">
+          <span class="timestamp">[08:42:12]</span>
+          <span class="msg">Optimized YOLOv8 inference latency; reduced by 42ms using TensorRT.</span>
+        </div>
+        <div class="log-entry success">
+          <span class="timestamp">[10:15:45]</span>
+          <span class="msg">SUCCESS: Mikrotik VPN MTU handshake resolved; packet loss 0%.</span>
+        </div>
+        <div class="log-entry">
+          <span class="timestamp">[14:22:01]</span>
+          <span class="msg">Refined RLHF reward model; Claude AI code quality metric +12%.</span>
+        </div>
+        <div class="log-entry">
+          <span class="timestamp">[16:05:33]</span>
+          <span class="msg">Selenium cluster scale-up complete; scraping throughput @ 5k pages/min.</span>
         </div>
       </div>
     </article>

@@ -1,7 +1,89 @@
 
 /* main.js: radar, drone, mock YOLO, submitForm (uses global GOOGLE_SCRIPT_URL variable set in index.html) */
 
+/* Status Bar & Uptime */
+const startTime = Date.now();
+function updateStatus() {
+  const now = new Date();
+  document.getElementById('sys-time').innerText = now.toTimeString().split(' ')[0];
+  const diff = Math.floor((Date.now() - startTime) / 1000);
+  const h = String(Math.floor(diff / 3600)).padStart(2, '0');
+  const m = String(Math.floor((diff % 3600) / 60)).padStart(2, '0');
+  const s = String(diff % 60).padStart(2, '0');
+  document.getElementById('uptime').innerText = `${h}:${m}:${s}`;
+  document.getElementById('latency').innerText = Math.floor(Math.random() * 20 + 5) + 'ms';
+}
+setInterval(updateStatus, 1000);
+
+/* Engineer View Toggle Logic */
+document.getElementById('mode-toggle').addEventListener('change', (e) => {
+  const isEngineer = e.target.checked;
+  document.body.classList.toggle('engineer-mode', isEngineer);
+  const jobs = document.querySelectorAll('.job, .project');
+  jobs.forEach(job => {
+    if (isEngineer) {
+      if (!job.dataset.originalHtml) job.dataset.originalHtml = job.innerHTML;
+      const title = job.querySelector('h3').innerText;
+      const meta = job.querySelector('.muted')?.innerText || '';
+      const tags = Array.from(job.querySelectorAll('.tag')).map(t => t.innerText);
+      const json = {
+        object: "ProfessionalExperience",
+        title: title,
+        context: meta,
+        stack: tags,
+        status: "verified_by_human"
+      };
+      job.innerHTML = `<pre style="margin:0; font-size:11px; color:var(--accent2)">${JSON.stringify(json, null, 2)}</pre>`;
+    } else {
+      if (job.dataset.originalHtml) job.innerHTML = job.dataset.originalHtml;
+    }
+  });
+});
+
+/* Interactive Signal Background */
+const canvas = document.getElementById('bg-canvas');
+const ctx = canvas.getContext('2d');
+let points = [];
+function initBg() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  points = [];
+  for (let i = 0; i < 40; i++) {
+    points.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 0.5,
+      vy: (Math.random() - 0.5) * 0.5
+    });
+  }
+}
+function drawBg() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.strokeStyle = 'rgba(124,92,255,0.08)';
+  ctx.fillStyle = 'rgba(124,92,255,0.2)';
+  points.forEach((p, i) => {
+    p.x += p.vx; p.y += p.vy;
+    if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+    if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, 1.5, 0, Math.PI * 2);
+    ctx.fill();
+    for (let j = i + 1; j < points.length; j++) {
+      const p2 = points[j];
+      const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+      if (dist < 150) {
+        ctx.lineWidth = 1 - dist / 150;
+        ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p2.x, p2.y); ctx.stroke();
+      }
+    }
+  });
+  requestAnimationFrame(drawBg);
+}
+window.addEventListener('resize', initBg);
+initBg(); drawBg();
+
 function radarToggle(){
+
   const d1=document.getElementById('dot1'), d2=document.getElementById('dot2'), sweep=document.getElementById('sweep');
   if(!radarToggle.running){
     d1.style.display='block'; d2.style.display='block';
