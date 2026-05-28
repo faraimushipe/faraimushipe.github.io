@@ -1,26 +1,6 @@
 
 /* main.js: radar, drone, mock YOLO, submitForm (uses global GOOGLE_SCRIPT_URL variable set in index.html) */
 
-/* Identity Verification Splash Screen Logic */
-window.addEventListener('load', () => {
-  const splash = document.getElementById('splash-screen');
-  const progress = document.getElementById('splash-progress');
-  const dashArray = 283;
-  
-  // Start progress animation
-  setTimeout(() => {
-    progress.style.strokeDashoffset = 0;
-  }, 100);
-
-  // After animation, hide splash
-  setTimeout(() => {
-    splash.classList.add('hidden');
-    setTimeout(() => {
-      splash.style.display = 'none';
-    }, 1200);
-  }, 1800);
-});
-
 /* Status Bar & Uptime */
 
 const startTime = Date.now();
