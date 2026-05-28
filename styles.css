@@ -12,7 +12,13 @@
 .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:#fff}
 .small{font-size:13px;padding:8px 10px}
 .grid{display:grid;grid-template-columns:1fr 360px;gap:20px}
-.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+.card{background:rgba(255,255,255,0.03);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.05);transition:all 0.3s ease}.card:hover{border-color:var(--accent);box-shadow:0 0 20px rgba(124,92,255,0.15);transform:translateY(-2px)}
+.tag-container{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.tag{background:rgba(124,92,255,0.1);color:var(--accent);padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;border:1px solid rgba(124,92,255,0.2)}
+.terminal-cursor{display:inline-block;width:8px;height:1.2em;background:var(--accent2);margin-left:4px;vertical-align:middle;animation:blink 1s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.source-link{font-size:12px;display:inline-flex;align-items:center;gap:4px;margin-top:8px;color:var(--accent2);text-decoration:none}.source-link:hover{text-decoration:underline}
+
 .counters{display:flex;gap:12px;flex-wrap:wrap}
 .counter{flex:1;min-width:140px;padding:12px;border-radius:10px;background:transparent}
 .lab-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
