@@ -426,6 +426,60 @@
       </div>
     </article>
 
+    <section id="ai-rag-demo" style="padding: 60px 20px; background-color: #0d1117; border-top: 1px solid #30363d; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;">
+        <div style="max-width: 1050px; margin: 0 auto; text-align: left;">
+            
+            <h2 style="color: #f0f6fc; font-size: 28px; font-weight: 600; margin-bottom: 8px; letter-spacing: -0.5px;">⚡ NEURAL_SPEC // Enterprise RAG Core Engine</h2>
+            <p style="color: #8b949e; font-size: 16px; margin-bottom: 24px; line-height: 1.5;">
+                A high-performance, stateless Retrieval-Augmented Generation microservice built to ingest, index, and query dense engineering specifications and technical manuals.
+            </p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 32px;">
+                <div style="background-color: #161b22; border: 1px solid #30363d; padding: 16px; border-radius: 6px;">
+                    <strong style="color: #58a6ff; display: block; font-size: 12px; font-family: monospace; text-transform: uppercase; margin-bottom: 4px;">Ingestion & Processing</strong>
+                    <span style="color: #c9d1d9; font-size: 14px;">pypdf (In-Memory Streaming Data Pipelines)</span>
+                </div>
+                <div style="background-color: #161b22; border: 1px solid #30363d; padding: 16px; border-radius: 6px;">
+                    <strong style="color: #58a6ff; display: block; font-size: 12px; font-family: monospace; text-transform: uppercase; margin-bottom: 4px;">Vector Embeddings</strong>
+                    <span style="color: #c9d1d9; font-size: 14px;">Sentence-Transformers (384-Dim Tensors)</span>
+                </div>
+                <div style="background-color: #161b22; border: 1px solid #30363d; padding: 16px; border-radius: 6px;">
+                    <strong style="color: #58a6ff; display: block; font-size: 12px; font-family: monospace; text-transform: uppercase; margin-bottom: 4px;">Vector Database</strong>
+                    <span style="color: #c9d1d9; font-size: 14px;">Qdrant Cloud Cluster (Cosine Indexing)</span>
+                </div>
+                <div style="background-color: #161b22; border: 1px solid #30363d; padding: 16px; border-radius: 6px;">
+                    <strong style="color: #58a6ff; display: block; font-size: 12px; font-family: monospace; text-transform: uppercase; margin-bottom: 4px;">Compute Inference</strong>
+                    <span style="color: #c9d1d9; font-size: 14px;">SambaNova Cloud RDU (DeepSeek-V3.1)</span>
+                </div>
+            </div>
+
+            <div style="background-color: rgba(56, 139, 253, 0.1); border-left: 4px solid #58a6ff; padding: 16px; border-radius: 0 6px 6px 0; margin-bottom: 32px;">
+                <h4 style="color: #f0f6fc; margin: 0 0 6px 0; font-size: 14px; font-family: monospace;">🔍 ARCHITECTURAL NOTE: Why RAG over Raw Local LLMs?</h4>
+                <p style="color: #8b949e; margin: 0; font-size: 13.5px; line-height: 1.6;">
+                    Even in high-security, completely local environments utilizing tools like Ollama, raw context stuffing scales quadratically at <strong>O(N²)</strong> compute complexity—causing extreme memory bottlenecks and performance degradation. This architecture mitigates attention loss and token bloat by using mathematical semantic pruning via Qdrant prior to generation, ensuring sub-50ms context filtering while fully supporting air-gapped on-prem deployments.
+                </p>
+            </div>
+
+            <div style="position: relative; width: 100%; overflow: hidden; border: 1px solid #30363d; border-radius: 8px; background-color: #0d1117;">
+                <iframe
+                    src="https://bhabhasage-neural-spec-analyst.hf.space"
+                    frameborder="0"
+                    width="100%"
+                    height="650"
+                    style="display: block; width: 100%; border: none;"
+                    allow="clipboard-write"
+                ></iframe>
+            </div>
+            
+            <div style="margin-top: 16px; text-align: right;">
+                <a href="https://bhabhasage-neural-spec-analyst.hf.space" target="_blank" style="color: #58a6ff; text-decoration: none; font-size: 14px; font-family: monospace; font-weight: 500;">
+                    // Launch Full-Screen Engineering Dashboard ↗
+                </a>
+            </div>
+
+        </div>
+    </section>
+
     <article class="card" data-aos="fade-up" id="blog">
       <h2>Insights & Blog</h2>
       <p class="muted">Technical write-ups and engineering notes.</p>
