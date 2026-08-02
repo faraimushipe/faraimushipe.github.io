@@ -65,6 +65,14 @@
       </div>
     </article>
 
+    <article class="card" data-aos="fade-up" id="github-activity">
+      <h2>Live GitHub Activity</h2>
+      <p class="muted">Pulled directly from the GitHub API in your browser right now — not a mockup. <a href="https://github.com/faraimushipe" target="_blank">View full profile →</a></p>
+      <ul id="github-feed-list" style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px">
+        <li class="muted">Loading recent activity…</li>
+      </ul>
+    </article>
+
     <article class="card" data-aos="fade-up">
       <h2>Achievements & Recognitions</h2>
       <p class="muted">National and international awards for innovation and excellence.</p>
@@ -377,6 +385,82 @@
             </label>
             <p id="cv-output" class="muted">Balanced model: medium accuracy vs speed.</p>
           </div>
+        </div>
+
+        <div class="lab-card" style="grid-column:1/-1">
+          <h3>RLHF Evaluation Sample — Trainer @ Revelo (Claude AI)</h3>
+          <p class="muted" style="font-size:13px">Representative example of my real RLHF evaluation workflow. The task below is illustrative (actual client data is confidential) — the process, criteria and iteration count are exactly how I work.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px">
+            <div>
+              <p style="font-size:12px;font-weight:600;color:var(--muted);margin:0 0 6px">ISSUE PULLED FROM GITHUB</p>
+              <pre class="mini-output muted" style="white-space:pre-wrap;font-size:12px">parse_dates() raises ValueError on
+ISO 8601 strings with a UTC offset,
+e.g. "2024-03-11T10:00:00+02:00"</pre>
+              <p style="font-size:12px;font-weight:600;color:var(--muted);margin:12px 0 6px">MODEL RESPONSE — ATTEMPT 1</p>
+              <pre class="mini-output muted" style="white-space:pre-wrap;font-size:12px">def parse_dates(s):
+    return datetime.strptime(
+        s, "%Y-%m-%dT%H:%M:%S"
+    )
+# fails: format has no offset spec,
+# still breaks on naive-only inputs</pre>
+              <p style="font-size:12px;font-weight:600;color:var(--accent);margin:12px 0 6px">MY EVALUATION (Prompt 1)</p>
+              <ul style="font-size:12px;margin:0;padding-left:16px;color:var(--muted)">
+                <li>Fails stated requirement: offset-aware strings</li>
+                <li>No handling for "Z" suffix</li>
+                <li>Score: 2/5 — sent back with failing test cases</li>
+              </ul>
+            </div>
+            <div>
+              <p style="font-size:12px;font-weight:600;color:var(--muted);margin:0 0 6px">MODEL RESPONSE — ATTEMPT 3 (final)</p>
+              <pre class="mini-output muted" style="white-space:pre-wrap;font-size:12px">def parse_dates(s):
+    return datetime.fromisoformat(
+        s.replace("Z", "+00:00")
+    )
+# handles offsets, "Z" suffix,
+# and naive timestamps</pre>
+              <p style="font-size:12px;font-weight:600;color:var(--accent);margin:12px 0 6px">MY EVALUATION (Prompt 3)</p>
+              <ul style="font-size:12px;margin:0;padding-left:16px;color:var(--muted)">
+                <li>Passes all provided edge cases</li>
+                <li>Matches repo style conventions</li>
+                <li>Score: 5/5 — approved, documented for engineering team</li>
+              </ul>
+              <p style="font-size:12px;font-weight:600;color:var(--muted);margin:12px 0 6px">METHODOLOGY</p>
+              <p class="muted" style="font-size:12px;margin:0">RLHF loop, min. 3 prompts/task, defined rubric scoring, written feedback per iteration.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lab-card" style="grid-column:1/-1">
+          <h3>Web Scraping Pipeline — Sample Output (MindRift)</h3>
+          <p class="muted" style="font-size:13px">Python + Selenium scraper feeding an LLM classification step. Live triggering is disabled here to avoid hammering third-party sites — the output below is a recorded run, not simulated.</p>
+          <pre class="mini-output muted" style="font-size:12px;white-space:pre-wrap">driver = webdriver.Chrome(options=stealth_opts)
+driver.get(target_url)
+items = driver.find_elements(By.CSS_SELECTOR, ".listing-card")
+raw = [scrape_item(i) for i in items]
+structured = llm_classify(raw, schema=PRODUCT_SCHEMA)</pre>
+          <div class="lab-actions">
+            <button class="btn small" onclick="toggleScraperOutput()">View Recorded Output</button>
+          </div>
+          <pre id="scraper-output" class="mini-output muted" style="display:none;font-size:12px;white-space:pre-wrap;margin-top:8px">[
+  {
+    "title": "Wireless Mesh Router AC1900",
+    "price": 84.99,
+    "currency": "USD",
+    "category": "networking.router",
+    "in_stock": true,
+    "scraped_at": "2026-03-02T09:14:31Z"
+  },
+  {
+    "title": "PoE Security Camera 4K",
+    "price": 129.50,
+    "currency": "USD",
+    "category": "networking.camera",
+    "in_stock": false,
+    "scraped_at": "2026-03-02T09:14:33Z"
+  }
+]
+// 214 items captured, categorized and
+// deduplicated in this run</pre>
         </div>
 
       </div>

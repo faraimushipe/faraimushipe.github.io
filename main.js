@@ -364,6 +364,68 @@ function buildSQLQuery(){
   output.textContent=query;
 }
 
+function toggleScraperOutput(){
+  const out=document.getElementById('scraper-output');
+  if(!out) return;
+  out.style.display = out.style.display==='none' ? 'block' : 'none';
+}
+
+function timeAgo(dateStr){
+  const diffMs = Date.now() - new Date(dateStr).getTime();
+  const mins = Math.floor(diffMs/60000);
+  if(mins < 60) return mins+'m ago';
+  const hours = Math.floor(mins/60);
+  if(hours < 24) return hours+'h ago';
+  return Math.floor(hours/24)+'d ago';
+}
+
+function describeGitHubEvent(ev){
+  const repo = ev.repo && ev.repo.name;
+  const link = 'https://github.com/'+repo;
+  if(ev.type==='PushEvent'){
+    const n = ev.payload && ev.payload.commits ? ev.payload.commits.length : 1;
+    return {text: 'Pushed '+n+' commit'+(n===1?'':'s')+' to', repo, link};
+  }
+  if(ev.type==='CreateEvent'){
+    return {text: 'Created '+(ev.payload.ref_type||'repo')+' in', repo, link};
+  }
+  if(ev.type==='PullRequestEvent'){
+    return {text: (ev.payload.action||'updated')+' a pull request in', repo, link};
+  }
+  if(ev.type==='IssuesEvent'){
+    return {text: (ev.payload.action||'updated')+' an issue in', repo, link};
+  }
+  if(ev.type==='WatchEvent'){
+    return {text: 'Starred', repo, link};
+  }
+  if(ev.type==='ForkEvent'){
+    return {text: 'Forked', repo, link};
+  }
+  return {text: ev.type.replace('Event','')+' on', repo, link};
+}
+
+async function loadGitHubFeed(){
+  const list=document.getElementById('github-feed-list');
+  if(!list) return;
+  try{
+    const res = await fetch('https://api.github.com/users/faraimushipe/events/public');
+    if(!res.ok) throw new Error('GitHub API error');
+    const events = await res.json();
+    if(!Array.isArray(events) || events.length===0){
+      list.innerHTML = '<li class="muted">No recent public activity — <a href="https://github.com/faraimushipe" target="_blank">view profile</a>.</li>';
+      return;
+    }
+    list.innerHTML = events.slice(0,6).map(ev=>{
+      const d = describeGitHubEvent(ev);
+      return '<li style="font-size:13px"><span class="muted">'+timeAgo(ev.created_at)+'</span> — '+d.text+' <a href="'+d.link+'" target="_blank">'+d.repo+'</a></li>';
+    }).join('');
+  } catch(err){
+    console.error(err);
+    list.innerHTML = '<li class="muted">Live feed unavailable right now — <a href="https://github.com/faraimushipe" target="_blank">view GitHub profile directly</a>.</li>';
+  }
+}
+loadGitHubFeed();
+
 function updateCVLite(){
   const slider=document.getElementById('cv-size');
   const output=document.getElementById('cv-output');
